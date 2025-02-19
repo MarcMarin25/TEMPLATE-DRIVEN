@@ -1,0 +1,19 @@
+<div>
+  <form (ngSubmit)="onSubmit()">
+    <label for="username">Username:</label>
+    <input class="input-box" type="text" id="username" name="username" [(ngModel)]="anytext" placeholder="Enter your username" required>
+    
+    <label for="email">Email:</label>
+    <input class="input-box" type="email" id="email" name="email" [(ngModel)]="email" placeholder="Enter your email" required>
+    
+    <label for="age">Age:</label>
+    <input class="input-box" type="number" id="age" name="age" [(ngModel)]="age" placeholder="Enter your age" required>
+    
+    <label for="message">Message:</label>
+    <textarea class="input-box" id="message" name="message" [(ngModel)]="message" placeholder="Your message" required></textarea>
+    
+    <input class="btn" type="submit" value="Submit" [disabled]="!anytext || !email || !age || !message">
+  </form>
+</div>
+<p *ngIf="submitted">You have entered: {{ anytext }}, {{ email }}, {{ age }}, {{ message }}</p>
+<router-outlet />
